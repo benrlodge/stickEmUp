@@ -1,0 +1,37 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  background: url('../images/stickEmUpHandBW.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  text-shadow: 1px 4px 1px rgba(0, 0, 0, 0.8);
+  font-family: 'Bangers', sans-serif;
+  letter-spacing: 3px;
+}
+
+h1{
+  font-size: 90px;
+}
+
+
+.headline{
+  text-align: center;
+  color: #fff;
+  margin-top: 300px;
+}
