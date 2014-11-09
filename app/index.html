@@ -19,13 +19,22 @@
     <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
 
+    <style>
+
+      .stickEmUp{
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+    </style>
   </head>
   <body>
   
       <section id='intro'>
         <div class="row">
           <div class="col-lg-12">
-          <h1 class='headline'>Stick Em Up!</h1>
+          <h1 class='headline '>Stick Em Up!</h1>
           </div>
         </div>
       </section>
@@ -33,7 +42,7 @@
       <section id='section2'>
         <div class="row">
           <div class="col-lg-12">
-          <h2 class='headline'>Make things sticky as you scroll</h2>
+          <h2 class='headline headline-1'>Make things sticky as you scroll</h2>
           </div>
         </div>
       </section>
@@ -41,7 +50,7 @@
       <section id='section2'>
         <div class="row">
           <div class="col-lg-12">
-          <h2 class='headline'>Stick em again when you scroll some more</h2>
+          <h2 class='headline headline-2'>Stick em again when you scroll some more</h2>
           </div>
         </div>
       </section>
@@ -107,5 +116,18 @@
         <script src="scripts/stickEmUp.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
+
+
+        <script>
+          $('.headline-1').stickEmUp({
+            stickOffset: 0,
+            offset: 0,
+            stickAtEl: '.headline-2',
+            callback: function(info){
+                // console.log(info);
+            }
+          });
+        </script>
+
 </body>
 </html>
