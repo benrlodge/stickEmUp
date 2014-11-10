@@ -53,7 +53,9 @@
         },
 
         elOffset: function() {
-            return $(this.element).offset().top;
+            console.log('offset: ');
+            console.log($(this.element).offset().top - this.options.stickOffset);
+            return $(this.element).offset().top - this.options.stickOffset;
         },
     
         stick: function() {
@@ -91,6 +93,7 @@
             else{
                 this.unstick();
             }
+
 
 
             // send callback

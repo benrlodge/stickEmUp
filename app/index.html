@@ -19,70 +19,68 @@
     <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
     <!-- endbuild -->
 
-    <style>
 
-      .stickEmUp{
-        position: fixed;
-        top: 0;
-        left: 0;
-      }
-
-    </style>
   </head>
   <body>
-  
-      <section id='intro'>
-        <div class="row">
-          <div class="col-lg-12">
-          <h1 class='headline '>Stick Em Up!</h1>
-          </div>
-        </div>
+    
+<div class='container'>
+
+  <div class='sidebar'>
+    <ul>
+      <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#start">Quick Start Guide</a> </li>
+      <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#options">Options</a> </li>
+      <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#about">About</a> </li>
+    </ul>
+  </div>
+
+  <div class='content'>
+
+      <h1>Stick Em Up! <span>(.js) </span></h1>
+      <img src="images/funny-big-gun.jpg">
+      <h2>Flexible, simple, sticky stuff</h2> 
+      <p>I created Stick Em Up so I could have a flexible and easy way to set fixed positioning on elements based on where visitors are scrolling on webpages.</p>
+
+
+
+        <section id="start">
+          <h2>Quick Start Guide</h2>
+
+          <p><i>Recte, inquit, intellegis.</i> Qua tu etiam inprudens utebare non numquam. Homines optimi non intellegunt totam rationem everti, si ita res se habeat. <code>Istic sum, inquit.</code> <i>Erat enim Polemonis.</i> Sin laboramus, quis est, qui alienae modum statuat industriae? </p>
+
+          <p><b>Nulla erit controversia.</b> <code>Qui est in parvis malis.</code> Haec quo modo conveniant, non sane intellego. Hoc ipsum elegantius poni meliusque potuit. Intrandum est igitur in rerum naturam et penitus quid ea postulet pervidendum; Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. Quid, quod res alia tota est? Quis, quaeso, illum negat et bonum virum et comem et humanum fuisse? Aliter enim explicari, quod quaeritur, non potest. Sed tamen est aliquid, quod nobis non liceat, liceat illis. Quos quidem tibi studiose et diligenter tractandos magnopere censeo. </p>
+
+          <p>Non enim, si omnia non sequebatur, idcirco non erat ortus illinc. Duo Reges: constructio interrete. <i>An hoc usque quaque, aliter in vita?</i> Est, ut dicis, inquit; <b>Nihil ad rem! Ne sit sane;</b> Quia nec honesto quic quam honestius nec turpi turpius. Primum cur ista res digna odio est, nisi quod est turpis? Quorum sine causa fieri nihil putandum est. Satisne ergo pudori consulat, si quis sine teste libidini pareat? Tecum optime, deinde etiam cum mediocri amico. Quis non odit sordidos, vanos, leves, futtiles? </p>
+        </section>
+
+      
+
+
+        <h2 id="options">Options</h2>
+          
+          <p>While setting measuring elements offset from the top of the page, and measuring when to trigger a class when it hits a certain point seems simple enough, things get a little trickier when the size of those elements is dependent on some JavaScript that needs to be loaded. For an example, you may want to have a fixed set of social sharing icons that follows you down a page. Thing is, you need the Twitters, Facebooks, LinkedIns and what nots to load their iframes in (if you go that route) before you will know the exact height of those elements. Sure, you can hardcode the expected size within the CSS of the container, but where's the fun in that??</p>
+
+          <p><i>Recte, inquit, intellegis.</i> Qua tu etiam inprudens utebare non numquam. Homines optimi non intellegunt totam rationem everti, si ita res se habeat. <code>Istic sum, inquit.</code> <i>Erat enim Polemonis.</i> Sin laboramus, quis est, qui alienae modum statuat industriae? </p>
+
+          <p><b>Nulla erit controversia.</b> <code>Qui est in parvis malis.</code> Haec quo modo conveniant, non sane intellego. Hoc ipsum elegantius poni meliusque potuit. Intrandum est igitur in rerum naturam et penitus quid ea postulet pervidendum; Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. Quid, quod res alia tota est? Quis, quaeso, illum negat et bonum virum et comem et humanum fuisse? Aliter enim explicari, quod quaeritur, non potest. Sed tamen est aliquid, quod nobis non liceat, liceat illis. Quos quidem tibi studiose et diligenter tractandos magnopere censeo. </p>
+
+          <p>Non enim, si omnia non sequebatur, idcirco non erat ortus illinc. Duo Reges: constructio interrete. <i>An hoc usque quaque, aliter in vita?</i> Est, ut dicis, inquit; <b>Nihil ad rem! Ne sit sane;</b> Quia nec honesto quic quam honestius nec turpi turpius. Primum cur ista res digna odio est, nisi quod est turpis? Quorum sine causa fieri nihil putandum est. Satisne ergo pudori consulat, si quis sine teste libidini pareat? Tecum optime, deinde etiam cum mediocri amico. Quis non odit sordidos, vanos, leves, futtiles? </p>
       </section>
 
-      <section id='section2'>
-        <div class="row">
-          <div class="col-lg-12">
-          <h2 class='headline headline-1'>Make things sticky as you scroll</h2>
-          </div>
-        </div>
-      </section>
+      <section id="about">
+        <h2>About</h2>
 
-      <section id='section2'>
-        <div class="row">
-          <div class="col-lg-12">
-          <h2 class='headline headline-2'>Stick em again when you scroll some more</h2>
-          </div>
-        </div>
-      </section>
+        <p>Setting elements sticky is a frequently asked for feature. As a resourceful developer I looked for tools that would help me do this without writing writing my own. I was hopeful when I found the waypoints plugin. Unfortunately, I found lots of funny behavior during window resizing, so I decided to just go ahead and create my own. Waypoints has many more features, this plugin is much simpler. It will tell you when your given element is at a certain point on the page, what direction the user was scrolling when it hit that element, adds a class to the element during that time, and provides a callback throughout all of this scrolling to do what you please with this information.</p>
+
+        <p>This is all I've needed for my basic needs, so that's all it provides. If you have any ideas for additional features, please feel free to submit a Github issue.</p>
 
 
-      <section id='section2'>
-        <div class="row">
-          <div class="col-lg-12">
-          <h2 class='headline'>Such and such</h2>
-          </div>
-        </div>
-      </section>
-
-      <section id='section2'>
-        <div class="row">
-          <div class="col-lg-12">
-          <h2 class='headline'>Such and such</h2>
-          </div>
-        </div>
-      </section>
-
-      <section id='section2'>
-        <div class="row">
-          <div class="col-lg-12">
-          <h2 class='headline'>Such and such</h2>
-          </div>
-        </div>
       </section>
 
 
     </div>
 
+
+  </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -119,12 +117,10 @@
 
 
         <script>
-          $('.headline-1').stickEmUp({
-            stickOffset: 0,
-            offset: 0,
-            stickAtEl: '.headline-2',
+          $('.sidebar').stickEmUp({
+            stickOffset: 10,
             callback: function(info){
-                // console.log(info);
+                console.log(info);
             }
           });
         </script>

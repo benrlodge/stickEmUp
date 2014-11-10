@@ -10,28 +10,80 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
-body {
-  background: url('../images/stickEmUpHandBW.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
+body{
+  background: #ababab;
 }
+
+p{
+  margin: 10px 0;
+}
+
+img{
+  max-width: 100%;
+}
+
 
 h1, h2, h3, h4 {
   text-shadow: 1px 4px 1px rgba(0, 0, 0, 0.8);
   font-family: 'Bangers', sans-serif;
   letter-spacing: 3px;
+  color: #fff;
 }
 
 h1{
   font-size: 90px;
+  span{
+    font-size: 30px;
+    letter-spacing: 6px;
+  }
+}
+h2{
+  margin: 20px 0;
+}
+section{
+  margin: 30px 0;
 }
 
 
-.headline{
-  text-align: center;
-  color: #fff;
-  height: 400px;
+.container{
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 865px;
+  position: relative;
+}
+
+.content{
+  margin-left: 250px;
+  width: 600px;
+}
+  
+.sidebar{
+  position: absolute;
+  width: 200px;
+  margin-top: 131px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px 0;
+
+  &.stickEmUp{
+    margin-top: 10px;
+
+  }
+}
+
+
+.sidebar_nav-item{
+  margin: 10px 0;
+}
+.sidebar_nav-item-link{
+  display: block;
+}
+
+
+
+
+
+.stickEmUp{
+  position: fixed;
+  top: 0;
 }
