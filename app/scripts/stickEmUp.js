@@ -28,7 +28,6 @@
         this.init();
     }
 
-
     // Methods
     Plugin.prototype = {
         sticky: false,
@@ -53,22 +52,17 @@
         },
 
         elOffset: function() {
-            console.log('offset: ');
-            console.log($(this.element).offset().top - this.options.stickOffset);
             return $(this.element).offset().top - this.options.stickOffset;
         },
     
         stick: function() {
             if(this.sticky){ return; }
-            console.log('stick');
-
             $(this.element).addClass(this.options.stickyClass);
             this.sticky = true;
         },
 
         unstick: function() {
             if(!this.sticky){ return; }
-            console.log('UNstick');
             $(this.element).removeClass(this.options.stickyClass);
             this.sticky = false;
         },
@@ -94,8 +88,6 @@
                 this.unstick();
             }
 
-
-
             // send callback
             var things = this.theStateOfThings();
             if (typeof this.options.callback === 'function') { // make sure the callback is a function
@@ -114,7 +106,6 @@
         },
 
         init: function(){
-            console.log(this.options);
             this.cachePositions();
             this.events();
         }
@@ -133,57 +124,3 @@
     };
 
 })( jQuery, window, document );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   // cachePositions: function() {
-
-   //          // var scope = this;
-   //          // this.cachedOffset = this.elementOffset();
-
-   //          // if (this.options.absoluteAtEl) {
-                
-   //          //     this.cachedAbsoluteOffset = this.absoluteElOffset() - this.options.absoluteAtOffset;
-   //          //     return $(window).load(function() {
-   //          //     return scope.cachedAbsoluteOffset = scope.absoluteElOffset() - scope.absoluteAtOffset;
-   //          //     });
-   //          // }
-
-   //      },
-
-
-
-
-        // checkPositions: function(){
-
-        //     console.log('Window Position:  ' + this.docOffset());
-
-
-
-        //     if (this.docOffset() >= this.cachedOffset) {
-        //       this.stickEmUp();
-        //       if (this.options.absoluteAtEl) {
-        //         if (this.docOffset() >= this.cachedAbsoluteOffset) {
-        //           this.stickEmAbsolute();
-        //         } else {
-        //           this.stickEmDownAbsolute();
-        //         }
-        //       }
-        //     }
-        //     if (this.docOffset() <= this.cachedOffset) {
-        //       return this.stickEmDown();
-        //     }
-        // },
-
-
