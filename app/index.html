@@ -29,27 +29,66 @@
     <ul>
       <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#start">Quick Start Guide</a> </li>
       <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#options">Options</a> </li>
+      <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#download">Download</a> </li>
       <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#about">About</a> </li>
     </ul>
   </div>
 
   <div class='content'>
 
-      <h1>Stick Em Up! <span>(.js) </span></h1>
+      <h1>Stick Em Up! <span>.js </span></h1>
       <img src="images/funny-big-gun.jpg">
       <h2>Flexible, simple, sticky stuff</h2> 
-      <p>I created Stick Em Up so I could have a flexible and easy way to set fixed positioning on elements based on where visitors are scrolling on webpages.</p>
+      <p>I created Stick Em Up so I could have a flexible and easy way to set fixed positioning on elements based on where visitors are scrolling on webpages. </p>
+      <p>What is <i>really</i> just does is tell you when a given elements has been reached. Once it's been reached, a class is added to the element (which gives the fixed positioning, but you can really do whatever you want). Once the element is reached again in the opposite direction, that class is removed. Please read on for more specifics.</p> 
 
 
 
         <section id="start">
           <h2>Quick Start Guide</h2>
 
-          <p><i>Recte, inquit, intellegis.</i> Qua tu etiam inprudens utebare non numquam. Homines optimi non intellegunt totam rationem everti, si ita res se habeat. <code>Istic sum, inquit.</code> <i>Erat enim Polemonis.</i> Sin laboramus, quis est, qui alienae modum statuat industriae? </p>
+          <p>Getting started is easy, no options necessary other than the element you want to target. Let's take the sidebar to the left for an example.</p>
+          <p>You invoke the plugin as so:</p>
 
-          <p><b>Nulla erit controversia.</b> <code>Qui est in parvis malis.</code> Haec quo modo conveniant, non sane intellego. Hoc ipsum elegantius poni meliusque potuit. Intrandum est igitur in rerum naturam et penitus quid ea postulet pervidendum; Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. Quid, quod res alia tota est? Quis, quaeso, illum negat et bonum virum et comem et humanum fuisse? Aliter enim explicari, quod quaeritur, non potest. Sed tamen est aliquid, quod nobis non liceat, liceat illis. Quos quidem tibi studiose et diligenter tractandos magnopere censeo. </p>
+<pre>
+&lt;script&gt;
+  $(&#39;.sidebar&#39;).stickEmUp();
+&lt;/script&gt;
+</pre>
 
-          <p>Non enim, si omnia non sequebatur, idcirco non erat ortus illinc. Duo Reges: constructio interrete. <i>An hoc usque quaque, aliter in vita?</i> Est, ut dicis, inquit; <b>Nihil ad rem! Ne sit sane;</b> Quia nec honesto quic quam honestius nec turpi turpius. Primum cur ista res digna odio est, nisi quod est turpis? Quorum sine causa fieri nihil putandum est. Satisne ergo pudori consulat, si quis sine teste libidini pareat? Tecum optime, deinde etiam cum mediocri amico. Quis non odit sordidos, vanos, leves, futtiles? </p>
+      <p>When the sidebar reaches the top of the viewport, the class <code>stickeEmUp</code> <i>(which can be overridden in the options)</i> is added to the <b>sidebar</b> element. This class would contain the position:fixed and any other styling you wish to add, creating the sticky effect. When you scroll back up, once the sidebar has reached its original position, the class is removed, and the element regains it's original positioning.</p>
+      <p>Given the unique needs of an elements fixed position specific to a webpage and it's surrounding context, this plugin does not attempt to get into any of that. Instead, the <code>stickEmUp</code> or other named class you provide is added and removed, and you are left to create the CSS needed for your desired effect.</p>
+
+      <p>In the example on this page, below is the full code, with explanations given in the Options section.</p>
+
+<pre>
+&lt;style&gt;
+  .sidebar{
+    position: absolute;
+    width: 200px;
+    margin-top: 130px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px 0;
+  }
+  .sidebar.stickEmUp{
+    position: fixed;
+    margin-top: 10px;
+  }
+&lt;/style&gt;
+
+&lt;script&gt;
+  $(&#39;.sidebar&#39;).stickEmUp({
+    stickOffset: 10,
+    callback: function(info){
+      console.log(info);
+    }
+  });
+&lt;/script&gt;
+
+
+</pre>
+
         </section>
 
       
@@ -57,21 +96,30 @@
 
         <h2 id="options">Options</h2>
           
-          <p>While setting measuring elements offset from the top of the page, and measuring when to trigger a class when it hits a certain point seems simple enough, things get a little trickier when the size of those elements is dependent on some JavaScript that needs to be loaded. For an example, you may want to have a fixed set of social sharing icons that follows you down a page. Thing is, you need the Twitters, Facebooks, LinkedIns and what nots to load their iframes in (if you go that route) before you will know the exact height of those elements. Sure, you can hardcode the expected size within the CSS of the container, but where's the fun in that??</p>
+          <p>Options to come...</p>
 
-          <p><i>Recte, inquit, intellegis.</i> Qua tu etiam inprudens utebare non numquam. Homines optimi non intellegunt totam rationem everti, si ita res se habeat. <code>Istic sum, inquit.</code> <i>Erat enim Polemonis.</i> Sin laboramus, quis est, qui alienae modum statuat industriae? </p>
-
-          <p><b>Nulla erit controversia.</b> <code>Qui est in parvis malis.</code> Haec quo modo conveniant, non sane intellego. Hoc ipsum elegantius poni meliusque potuit. Intrandum est igitur in rerum naturam et penitus quid ea postulet pervidendum; Quem Tiberina descensio festo illo die tanto gaudio affecit, quanto L. Quid, quod res alia tota est? Quis, quaeso, illum negat et bonum virum et comem et humanum fuisse? Aliter enim explicari, quod quaeritur, non potest. Sed tamen est aliquid, quod nobis non liceat, liceat illis. Quos quidem tibi studiose et diligenter tractandos magnopere censeo. </p>
-
-          <p>Non enim, si omnia non sequebatur, idcirco non erat ortus illinc. Duo Reges: constructio interrete. <i>An hoc usque quaque, aliter in vita?</i> Est, ut dicis, inquit; <b>Nihil ad rem! Ne sit sane;</b> Quia nec honesto quic quam honestius nec turpi turpius. Primum cur ista res digna odio est, nisi quod est turpis? Quorum sine causa fieri nihil putandum est. Satisne ergo pudori consulat, si quis sine teste libidini pareat? Tecum optime, deinde etiam cum mediocri amico. Quis non odit sordidos, vanos, leves, futtiles? </p>
       </section>
+
+
+
+      <section id="download">
+        <h2>Download</h2>
+        <p><a href="https://github.com/benrlodge/stickEmUp">View it on Github</a></p>
+        <p><a href="https://github.com/benrlodge/stickEmUp/archive/master.zip">Download ZIP</a></p>
+        <pre> git clone https://github.com/benrlodge/stickEmUp.git </pre>
+
+
+      </section>
+
+
 
       <section id="about">
         <h2>About</h2>
 
-        <p>Setting elements sticky is a frequently asked for feature. As a resourceful developer I looked for tools that would help me do this without writing writing my own. I was hopeful when I found the waypoints plugin. Unfortunately, I found lots of funny behavior during window resizing, so I decided to just go ahead and create my own. Waypoints has many more features, this plugin is much simpler. It will tell you when your given element is at a certain point on the page, what direction the user was scrolling when it hit that element, adds a class to the element during that time, and provides a callback throughout all of this scrolling to do what you please with this information.</p>
+        <p>Setting elements sticky at certain positions on pages has been a frequently requested feature for me. As a resourceful (lazy) developer I looked for tools that would help me do this without writing writing my own. I was hopeful when I found the waypoints plugin. Unfortunately, I found lots of funny behavior during window resizing, so I decided to just go ahead and create my own. Waypoints has many more features (I don't aim to replicate them all), this plugin serves a much simpler purpose.</p> 
+        <p>This plugin will tell you when your given element is at a certain point on the page, what direction the user was scrolling when it hit that element, adds a class to the element during that time, and provides a callback throughout all of this scrolling to do what you please with this information.</p>
 
-        <p>This is all I've needed for my basic needs, so that's all it provides. If you have any ideas for additional features, please feel free to submit a Github issue.</p>
+        <p>This is all I've needed for my basic needs, so that's all it provides. If you have any ideas for additional features, please feel free to <a href="https://github.com/benrlodge/stickEmUp/issues">submit a Github issue.</a></p>
 
 
       </section>

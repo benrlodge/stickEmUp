@@ -16,8 +16,13 @@ body{
 
 p{
   margin: 10px 0;
+  font-size: 17px;
+  line-height: 1.6;
 }
-
+a{
+  color: black;
+  text-decoration: underline;
+}
 img{
   max-width: 100%;
 }
@@ -45,6 +50,10 @@ section{
 }
 
 
+pre{
+  margin: 10px 0;
+}
+
 .container{
   overflow: hidden;
   margin: 0 auto;
@@ -66,6 +75,7 @@ section{
   padding: 20px 0;
 
   &.stickEmUp{
+    position: fixed;
     margin-top: 10px;
 
   }
@@ -81,9 +91,3 @@ section{
 
 
 
-
-
-.stickEmUp{
-  position: fixed;
-  top: 0;
-}
