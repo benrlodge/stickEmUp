@@ -13,10 +13,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 body{
   background: #ababab;
 }
-
+ul li{
+  list-style: none;
+}
 p{
   margin: 10px 0;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.6;
 }
 a{
@@ -49,9 +51,19 @@ section{
   margin: 30px 0;
 }
 
-
+.code-j{
+  color: yellow;
+}
+.code-tag{
+  color: #FF4500;
+}
+.code-class{
+  color: #32CD32;
+}
 pre{
+  background: black;
   margin: 10px 0;
+  color: #fff;
 }
 
 .container{

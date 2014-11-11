@@ -67,7 +67,6 @@
             this.sticky = false;
         },
 
-
         cachePositions: function(){
             this.elCachedPosition = this.elOffset();
         },
