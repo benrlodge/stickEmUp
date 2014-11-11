@@ -15,7 +15,6 @@
             el: '',
             offset: 0,
             stickOffset: 0,
-            stickAtEl: '',
             callback: ''
         };
 
