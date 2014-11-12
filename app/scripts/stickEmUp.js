@@ -51,7 +51,7 @@
         },
 
         elOffset: function() {
-            return $(this.element).offset().top - this.options.stickOffset;
+            return parseInt($(this.element).offset().top - this.options.stickOffset);
         },
     
         stick: function() {
@@ -75,8 +75,9 @@
             var docOff = this.docOffset();
             
             // set direction
-            this.direction = this.pastOffset ? 'down' : 'up';
+            this.direction = this.pastOffset < docOff ? 'down' : 'up';
             this.pastOffset = docOff;
+
 
             // check stickiness
             if (docOff >= this.elCachedPosition){
