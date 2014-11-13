@@ -12,8 +12,6 @@
     var pluginName = 'stickEmUp',
         defaults = {
             stickyClass: 'stickEmUp',
-            el: '',
-            offset: 0,
             stickOffset: 0,
             callback: ''
         };
@@ -38,11 +36,14 @@
             var dos = this.docOffset();
             var eos = this.elOffset();
             var dir = this.direction;
+            var stic = this.sticky;
+
 
             return {
                 docOffset: dos,
                 elOffset: eos,
-                direction: dir
+                direction: dir,
+                stickEmUp: stic
             };
         },
 
@@ -116,7 +117,7 @@
     $.fn[pluginName] = function ( options ) {
         return this.each(function () {
             if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName, 
+                $.data(this, 'plugin_' + pluginName,
                 new Plugin( this, options ));
             }
         });
