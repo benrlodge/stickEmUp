@@ -6,17 +6,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
     <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+
     <!-- endbuild -->
 
 
@@ -40,8 +34,6 @@
       <img src="images/funny-big-gun.jpg">
       <h2>Flexible, simple, sticky stuff</h2> 
       <p>I created Stick Em Up so I could have a flexible and easy way to set fixed positioning on elements based on where visitors are scrolling on webpages. </p>
-      <!-- <p>What is <i>really</i> just does is tell you when a given elements has been reached. Once it's been reached, a class is added to the element (which gives the fixed positioning, but you can really do whatever you want). Once the element is reached again in the opposite direction, that class is removed. Please read on for more specifics.</p>  -->
-
 
 
         <section id="start">
@@ -91,15 +83,10 @@
 
         </section>
 
-      
-
-
+    
         <h2 id="options">Options</h2>
-          
           <p>Options to come...</p>
-
       </section>
-
 
 
       <section id="download">
@@ -120,58 +107,41 @@
         <p>This plugin will tell you when your given element is at a certain point on the page, what direction the user was scrolling when it hit that element, adds a class to the element during that time, and provides a callback throughout all of this scrolling to do what you please with this information.</p>
 
         <p>This is all I've needed for my basic needs, so that's all it provides. If you have any ideas for additional features, please feel free to <a href="https://github.com/benrlodge/stickEmUp/issues">submit a Github issue</a> or submit a pull request</p>
-
-
       </section>
-
-
     </div>
-
-
   </div>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        <script src="scripts/stickEmUp.js"></script>
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+   
+      <!-- build:js({app,.tmp}) scripts/main.js -->
+      <script src="js/stickEmUp.js"></script>
 
         <script>
+
           $('.sidebar').stickEmUp({
             stickOffset: 10,
             callback: function(info){
                 console.log(info);
             }
           });
-        </script>
+
+  
+        (function() {
+        
+          $('a.scrollto').click(function(){
+              $('html, body').animate({
+                  scrollTop: $( $.attr(this, 'href') ).offset().top
+              }, 500);
+              return false;
+          });
+
+        });
+      
+      </script>
+
+
+
 
 </body>
 </html>

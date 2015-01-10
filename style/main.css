@@ -1,7 +1,3 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
-// endbower
 
 .browsehappy {
   margin: 0.2em 0;
@@ -12,6 +8,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 body{
   background: #ababab;
+  font-family: sans-serif;
+  font-size: 16px;
 }
 ul li{
   list-style: none;
@@ -39,7 +37,9 @@ h1, h2, h3, h4 {
 
 h1{
   font-size: 90px;
-  span{
+}
+
+h1 span{
     font-size: 30px;
     letter-spacing: 6px;
   }
@@ -64,6 +64,7 @@ pre{
   background: black;
   margin: 10px 0;
   color: #fff;
+  padding: 10px;
 }
 
 .container{
@@ -85,8 +86,9 @@ pre{
   background: #fff;
   border-radius: 4px;
   padding: 20px 0;
+}
 
-  &.stickEmUp{
+.sidebar.stickEmUp{
     position: fixed;
     margin-top: 10px;
 
@@ -100,6 +102,5 @@ pre{
 .sidebar_nav-item-link{
   display: block;
 }
-
 
 
