@@ -60,6 +60,9 @@ section{
 .code-class{
   color: #32CD32;
 }
+.code-comment{
+  color: #bbb;
+}
 pre{
   background: black;
   margin: 10px 0;

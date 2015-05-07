@@ -6,10 +6,9 @@
 
 ;(function ( $, window, document, undefined ) {
 
-    'use strict';
-
     // Defaults
     var pluginName = 'stickEmUp',
+    document = window.document,
         defaults = {
             stickyClass: 'stickEmUp',
             stickOffset: 0,
@@ -25,6 +24,7 @@
         this.init();
     }
 
+
     // Methods
     Plugin.prototype = {
         sticky: false,
@@ -37,7 +37,6 @@
             var eos = this.elOffset();
             var dir = this.direction;
             var stic = this.sticky;
-
 
             return {
                 docOffset: dos,
@@ -73,6 +72,10 @@
   
         checkPositions: function(){
 
+            if(this.disabled){
+                return;
+            }
+
             var docOff = this.docOffset();
             
             // set direction
@@ -102,25 +105,32 @@
             $(window).scroll(function() {
                 scope.checkPositions();
             });
-
         },
 
         init: function(){
             this.cachePositions();
             this.events();
+        },
+
+        // override and remove sticky state
+        disableSticky: function(){
+            this.disabled = true;
+            this.unstick();
+        },
+
+        defaultSticky: function(){
+            this.disabled = false;
+            this.checkPositions();
         }
     };
 
-
-
     // Build the Plugin
-    $.fn[pluginName] = function ( options ) {
+      $.fn[ pluginName ] = function ( options ) {
         return this.each(function () {
-            if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName,
-                new Plugin( this, options ));
-            }
+          if (!$.data( this, 'plugin_' + pluginName ) ) {
+            $.data( this, 'plugin_' + pluginName, new Plugin( this, options ) );
+          }
         });
-    };
+      };
 
-})( jQuery, window, document );
+})( jQuery, window );

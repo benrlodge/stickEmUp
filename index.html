@@ -6,9 +6,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="style/main.css">
+  
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" href="style/main.css">
     <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 
     <!-- endbuild -->
@@ -22,7 +22,7 @@
   <div class='sidebar'>
     <ul>
       <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#start">Quick Start Guide</a> </li>
-      <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#options">Options</a> </li>
+      <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#options">Additional Features</a> </li>
       <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#download">Download</a> </li>
       <li class="sidebar_nav-item"> <a class="sidebar_nav-item-link scrollto" href="#about">About</a> </li>
     </ul>
@@ -44,7 +44,11 @@
 
 <pre>
 <span class='code-tag'>&lt;script&gt;</span>
+  <span class='code-comment'>// For basic use</span>
   <span class='code-j'>$</span>(&#39;<span class='code-class'>.sidebar</span>&#39;).stickEmUp();
+  
+  <span class='code-comment'>// To access additional public methods:</span>
+  <span class='code-j'>$</span>(&#39;<span class='code-class'>.sidebar</span>&#39;).stickEmUp().data('plugin_stickEmUp');
 <span class='code-tag'>&lt;/script&gt;</span>
 </pre>
 
@@ -77,16 +81,39 @@
     }
   });
 <span class='code-tag'>&lt;/script&gt;</span>
-
-
 </pre>
 
-        </section>
+</section>
 
-    
-        <h2 id="options">Options</h2>
-          <p>Options to come...</p>
-      </section>
+<section>
+<h2 id="options">Additional Features</h2>
+  <p>You can disable the plugin at any time by calling the public <code>disableSticky</code> method, and re-enable
+  the plugin with <code>defaultSticky</code>. Be sure to include the <code>.data('plugin_stickEmUp')</code> if using
+  this feature.</p>
+  
+  <button data-action='stop'>Deactivate StickEmUp</button>
+  <button data-action='start'>Activate StickEmUp</button>
+
+
+<pre>
+  <span class='code-comment'>// Set a variable for your element:</span>
+  
+  var stickEm = <span class='code-j'>$</span>(&#39;<span class='code-class'>.sidebar</span>&#39;).stickEmUp().data('plugin_stickEmUp');
+
+  <span class='code-comment'>// Disable plugin:</span>
+  <span class='code-j'>$</span>(&#39;<span class='code-class'>[data-action="stop"]</span>&#39;).click(function(){
+    stickEm.disableSticky();
+  })
+
+  <span class='code-comment'>// Re-enable plugin</span>
+  <span class='code-j'>$</span>(&#39;<span class='code-class'>[data-action="stop"]</span>&#39;).click(function(){
+    stickEm.defaultSticky();
+  })
+</pre>
+
+
+
+</section>
 
 
       <section id="download">
@@ -119,28 +146,23 @@
 
         <script>
 
-          $('.sidebar').stickEmUp({
+          var stickEm = $('.sidebar').stickEmUp({
             stickOffset: 10,
             callback: function(info){
-                console.log(info);
+              console.log(info);
             }
-          });
 
-  
-        (function() {
-        
-          $('a.scrollto').click(function(){
-              $('html, body').animate({
-                  scrollTop: $( $.attr(this, 'href') ).offset().top
-              }, 500);
-              return false;
-          });
+          }).data('plugin_stickEmUp');
 
-        });
+          $('[data-action="stop"]').click(function(){
+            stickEm.disableSticky();
+          })
+
+          $('[data-action="start"]').click(function(){
+            stickEm.defaultSticky();
+          })
       
       </script>
-
-
 
 
 </body>
